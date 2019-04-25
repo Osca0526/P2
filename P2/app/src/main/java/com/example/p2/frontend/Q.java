@@ -1,10 +1,11 @@
-package com.example.p2;
+package com.example.p2.frontend;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+
+import com.example.p2.R;
 
 public class Q extends AppCompatActivity{
 
