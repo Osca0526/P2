@@ -1,4 +1,4 @@
-package questionnaire;
+package com.example.p2.backend.questionnaire;
 
 import java.util.ArrayList;
 
@@ -16,6 +16,7 @@ public class AnTI_Test {
 
     public AnTI_Test(){
         generateTestData();
+        //generateEmptyData();
     }
 
     private void generateTestData(){
@@ -28,6 +29,10 @@ public class AnTI_Test {
                 questions,
                 scoreCategories
         );
+    }
+
+    private void generateEmptyData(){
+        test = new Test(null, null);
     }
 
     private ArrayList<ScoreCategory> generateScoreCategories(){
@@ -53,31 +58,31 @@ public class AnTI_Test {
 
         questions.add( new Question(
                 "I worry about my appearance.",
-                scoreCategories.get(1),
+                scoreCategories.get(0),
                 questionAnswerOptions
         ) );
 
         questions.add( new Question(
                 "I think I am a failure.",
-                scoreCategories.get(3),
+                scoreCategories.get(2),
                 questionAnswerOptions
         ) );
 
         questions.add( new Question(
                 "When looking to my future I give more thought to the negative things than the positive things that might happen to me.",
-                scoreCategories.get(2),
-                questionAnswerOptions
-        ) );
-
-        questions.add( new Question(
-                "If I experience unexpected physical symptoms, I have a tendency to think the worst possible thing is wrong with me",
                 scoreCategories.get(1),
                 questionAnswerOptions
         ) );
 
         questions.add( new Question(
+                "If I experience unexpected physical symptoms, I have a tendency to think the worst possible thing is wrong with me",
+                scoreCategories.get(0),
+                questionAnswerOptions
+        ) );
+
+        questions.add( new Question(
                 " I have thoughts about becoming seriously ill.",
-                scoreCategories.get(2),
+                scoreCategories.get(1),
                 questionAnswerOptions
         ) );
 

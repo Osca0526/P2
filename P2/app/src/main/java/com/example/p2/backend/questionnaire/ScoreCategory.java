@@ -1,4 +1,4 @@
-package questionnaire;
+package com.example.p2.backend.questionnaire;
 
 public class ScoreCategory {
 

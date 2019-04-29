@@ -1,4 +1,4 @@
-package questionnaire;
+package com.example.p2.backend.questionnaire;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,6 +13,8 @@ public class Score {
 
     public Score(ArrayList<ScoreCategory> categories){
 
+        categoriesMap = new HashMap<ScoreCategory, Integer>();
+
         for (ScoreCategory category : categories){
             categoriesMap.put(category, 0);
         }
@@ -20,11 +22,12 @@ public class Score {
         numberOfCategories = categories.size();
 
         isCompleted = false;
+
     }
 
     public void addScore(ScoreCategory category, int answerWeight){
         int previousAnswerWeight = categoriesMap.get(category);
-        categoriesMap.replace(category, previousAnswerWeight + answerWeight);
+        //categoriesMap.replace(category, previousAnswerWeight + answerWeight);
     }
 
     public void setScoreCompleted(){

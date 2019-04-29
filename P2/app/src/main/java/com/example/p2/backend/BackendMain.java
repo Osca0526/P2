@@ -1,6 +1,8 @@
-import questionnaire.*;
+package com.example.p2.backend;
 
-public class Main {
+import com.example.p2.backend.questionnaire.*;
+
+public class BackendMain {
 
     public static void main(String[] args) {
 
@@ -13,14 +15,16 @@ public class Main {
 
         int inputAnswerFromUser = 1; // to be taken from the user, depending on the answer option
 
-        while (!test.isCompleted()){
+        //while (!test.isCompleted()){
             currentQuestion = test.getCurrentQuestion();
             questionAnswerOptions = currentQuestion.getQuestionAnswerOptions();
             currentQuestion.setAnswer(questionAnswerOptions.getAnswerOptions().get(inputAnswerFromUser));
-        }
+        //}
 
         Score testScore = test.getScore();
-        testScore.printScore();
+       // testScore.printScore();
+
+        System.out.println("done.");
 
     }
 }
