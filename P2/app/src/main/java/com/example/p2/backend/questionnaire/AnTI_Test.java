@@ -85,11 +85,131 @@ public class AnTI_Test {
         ) );
 
         questions.add( new Question(
-                " I have thoughts about becoming seriously ill.",
+                "I have thoughts about becoming seriously ill.",
                 scoreCategories.get(1),
                 questionAnswerOptions,
                 5
         ) );
+
+        questions.add( new Question(
+                "I have difficulty clearing my mind of repetitive thoughts.",
+                scoreCategories.get(2),
+                questionAnswerOptions,
+                6
+        ) );
+
+        questions.add( new Question(
+                "I worry about having a heart attack or cancer.",
+                scoreCategories.get(1),
+                questionAnswerOptions,
+                7
+        ) );
+
+        questions.add( new Question(
+                "I worry about saying or doing the wrong things when among strangers.",
+                scoreCategories.get(0),
+                questionAnswerOptions,
+                8
+        ) );
+
+        questions.add( new Question(
+                "I worry about my abilities not living up to other people’s expectations.",
+                scoreCategories.get(0),
+                questionAnswerOptions,
+                9
+        ) );
+
+        questions.add( new Question(
+                "I worry about my physical health.",
+                scoreCategories.get(1),
+                questionAnswerOptions,
+                10
+        ) );
+
+        questions.add( new Question(
+                "I worry that I cannot control my thoughts as well as I would like to.",
+                scoreCategories.get(2),
+                questionAnswerOptions,
+                11
+        ) );
+
+        questions.add( new Question(
+                "I worry that people don’t like me.",
+                scoreCategories.get(0),
+                questionAnswerOptions,
+                12
+        ) );
+
+        questions.add( new Question(
+                "I take disappointments so keenly that I can’t put them out of my mind.",
+                scoreCategories.get(2),
+                questionAnswerOptions,
+                13
+        ) );
+
+        questions.add( new Question(
+                "I get embarrassed easily.",
+                scoreCategories.get(0),
+                questionAnswerOptions,
+                14
+        ) );
+
+        questions.add( new Question(
+                "When I suffer from minor illnesses such as a rash, I think it is more serious than it really is.",
+                scoreCategories.get(1),
+                questionAnswerOptions,
+                15
+        ) );
+
+        questions.add( new Question(
+                "Unpleasant thoughts enter my head against my will.",
+                scoreCategories.get(2),
+                questionAnswerOptions,
+                16
+        ) );
+
+        questions.add( new Question(
+                "I worry about my failures and my weaknesses.",
+                scoreCategories.get(0),
+                questionAnswerOptions,
+                17
+        ) );
+
+        questions.add( new Question(
+                "I worry about not being able to cope in life as adequately as others seem to.",
+                scoreCategories.get(0),
+                questionAnswerOptions,
+                18
+        ) );
+
+        questions.add( new Question(
+                "I worry about death.",
+                scoreCategories.get(1),
+                questionAnswerOptions,
+                19
+        ) );
+
+        questions.add( new Question(
+                "I worry about making a fool of myself.",
+                scoreCategories.get(0),
+                questionAnswerOptions,
+                20
+        ) );
+
+        questions.add( new Question(
+                "I think I am missing out on things in life because I worry too much.",
+                scoreCategories.get(2),
+                questionAnswerOptions,
+                21
+        ) );
+
+        questions.add( new Question(
+                "I have repetitive thoughts such as counting or repeating phrases.",
+                scoreCategories.get(2),
+                questionAnswerOptions,
+                22
+        ) );
+
 
         return questions;
     }

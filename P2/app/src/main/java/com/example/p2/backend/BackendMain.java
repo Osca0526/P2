@@ -15,7 +15,7 @@ public class BackendMain {
 
         int inputAnswerFromUser = 1; // to be taken from the user, depending on the answer option
 
-        int[] inputAnswerFromUserArray = {0, 1, 2, 3, 3, 2, 1, 0}; // to be taken from the user
+        int[] inputAnswerFromUserArray = {0, 1, 2, 3, 3, 2, 1, 0, 0, 1, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}; // to be taken from the user
 
         while (!test.isCompleted()){
             currentQuestion = test.getCurrentQuestion();
