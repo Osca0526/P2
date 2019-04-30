@@ -16,12 +16,13 @@ public class Test {
 
     public Test(ArrayList<Question> questions, ArrayList<ScoreCategory> categories){
         this.questions = questions;
+        this.categories = categories;
         calculateTotalScore();
         score = new Score(categories);
         for (Question question : questions){
             question.setTest(this);
         }
-        currentQuestionNumber = 1;
+        currentQuestionNumber = 0;
         testIsCompleted = false;
     }
 
@@ -59,11 +60,7 @@ public class Test {
     }
 
     public Score getScore(){
-        if (testIsCompleted){
-            return score;
-        }else{
-            return null;
-        }
+        return score;
     }
 
     public boolean isCompleted(){
