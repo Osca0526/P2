@@ -25,10 +25,7 @@ public class AnTI_Test {
 
         ArrayList<Question> questions = generateQuestions(scoreCategories);
 
-        test = new Test(
-                questions,
-                scoreCategories
-        );
+        test = new Test(questions, scoreCategories);
     }
 
     private void generateEmptyData(){
@@ -62,33 +59,16 @@ public class AnTI_Test {
                 questionAnswerOptions
         ) );
 
-        questions.add( new Question(
-                "I think I am a failure.",
-                scoreCategories.get(2),
-                questionAnswerOptions
-        ) );
+        questions.add( new Question("I think I am a failure.", scoreCategories.get(2), questionAnswerOptions));
 
-        questions.add( new Question(
-                "When looking to my future I give more thought to the negative things than the positive things that might happen to me.",
-                scoreCategories.get(1),
-                questionAnswerOptions
-        ) );
+        questions.add( new Question("When looking to my future I give more thought to the negative things than the positive things that might happen to me.", scoreCategories.get(1), questionAnswerOptions));
 
-        questions.add( new Question(
-                "If I experience unexpected physical symptoms, I have a tendency to think the worst possible thing is wrong with me",
-                scoreCategories.get(0),
-                questionAnswerOptions
-        ) );
+        questions.add( new Question("If I experience unexpected physical symptoms, I have a tendency to think the worst possible thing is wrong with me", scoreCategories.get(0), questionAnswerOptions));
 
-        questions.add( new Question(
-                " I have thoughts about becoming seriously ill.",
-                scoreCategories.get(1),
-                questionAnswerOptions
-        ) );
+        questions.add( new Question(" I have thoughts about becoming seriously ill.", scoreCategories.get(1), questionAnswerOptions));
 
         return questions;
     }
-
 
     public Test getTest(){
         return test;
