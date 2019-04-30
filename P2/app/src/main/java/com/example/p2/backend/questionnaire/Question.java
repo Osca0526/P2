@@ -10,13 +10,16 @@ public class Question {
 
     private int answerWeight;
 
+    private int questionNumber;
+
     private Test test;
 
-    public Question(String textQuestion, ScoreCategory category, QuestionAnswerOptions questionAnswerOptions){
+    public Question(String textQuestion, ScoreCategory category, QuestionAnswerOptions questionAnswerOptions, int questionNumber){
         this.textQuestion = textQuestion;
         this.category = category;
         this.questionAnswerOptions = questionAnswerOptions;
         answerWeight = 0;
+        this.questionNumber = questionNumber;
     }
 
     public void setTest(Test test){
@@ -46,6 +49,10 @@ public class Question {
 
     public boolean isAnswered(){
         return (answerWeight != 0);
+    }
+
+    public int getQuestionNumber(){
+        return questionNumber;
     }
 
 }
