@@ -37,8 +37,8 @@ public class AnTI_Test {
 
     private ArrayList<ScoreCategory> generateScoreCategories(){
         ArrayList<ScoreCategory> scoreCategories = new ArrayList<>();
-        scoreCategories.add(new ScoreCategory("HEALTH"));
         scoreCategories.add(new ScoreCategory("SOCIAL"));
+        scoreCategories.add(new ScoreCategory("HEALTH"));
         scoreCategories.add(new ScoreCategory("META"));
         return scoreCategories;
     }

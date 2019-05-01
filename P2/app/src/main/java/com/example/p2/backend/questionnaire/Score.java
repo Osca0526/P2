@@ -1,12 +1,8 @@
 package com.example.p2.backend.questionnaire;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Locale;
 
 public class Score {
-
-    private HashMap<ScoreCategory, Integer> categoriesMap;
 
     private int numberOfCategories;
 
@@ -18,12 +14,6 @@ public class Score {
 
         this.categories = categories;
 
-        categoriesMap = new HashMap<>();
-
-        for (ScoreCategory category : categories){
-            categoriesMap.put(category, 0);
-        }
-
         numberOfCategories = categories.size();
 
         isCompleted = false;
@@ -31,16 +21,15 @@ public class Score {
     }
 
     public void addScore(ScoreCategory category, int answerWeight){
-        int previousAnswerWeight = (categoriesMap.get(category) == null) ? 0 : categoriesMap.get(category);
-        categoriesMap.replace(category, previousAnswerWeight + answerWeight);
+        category.increaseCount(answerWeight);
     }
 
     public void setScoreCompleted(){
         isCompleted = true;
     }
 
-    public HashMap<ScoreCategory, Integer> getScore(){
-        return categoriesMap;
+    public ArrayList<ScoreCategory> getScore(){
+        return categories;
     }
 
     public void printScore(){
@@ -54,7 +43,7 @@ public class Score {
         for (ScoreCategory category : categories){
             System.out.println("---");
             System.out.println(category.getCategoryName());
-            System.out.println(categoriesMap.get(category));
+            System.out.println(category.getCategoryScoreCount());
             System.out.println("---");
         }
     }
