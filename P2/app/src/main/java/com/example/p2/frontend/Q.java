@@ -41,7 +41,8 @@ public class Q extends AppCompatActivity{
         questionNumber.setText(numberText);
 
         if (number > test.getNumberOfQuestions()) {
-            startActivity(new Intent(Q.this, Result.class));
+            Intent name = new Intent(Q.this, Result.class);
+            startActivity(name);
             finish();
         }
     }
@@ -93,7 +94,7 @@ public class Q extends AppCompatActivity{
     };
 
     public void manageAnswer(int i){
-        test.getCurrentQuestion().setAnswer( test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions().get(i));
+        test.getCurrentQuestion().setAnswer(test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions().get(i));
         if(findViewById(R.id.submit).getVisibility() == Button.INVISIBLE) {
             findViewById(R.id.submit).setVisibility(Button.VISIBLE);
         }
