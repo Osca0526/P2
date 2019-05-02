@@ -84,7 +84,8 @@ public class Q extends AppCompatActivity{
                         test.nextQuestion();
                         update();
                     } else {
-                        Intent result = new Intent(Q.this, Result.class);
+                        Intent result = new Intent(Q.this, Result_Chart.class);
+                        result.putExtra("test", test);
                         startActivity(result);
                         finish();
                     }

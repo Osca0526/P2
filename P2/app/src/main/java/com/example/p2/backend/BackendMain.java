@@ -8,8 +8,6 @@ public class BackendMain {
 
         Test test = new AnTI_Test().getTest();
 
-        test.startTest();
-
         Question currentQuestion = null;
         QuestionAnswerOptions questionAnswerOptions = null;
 
