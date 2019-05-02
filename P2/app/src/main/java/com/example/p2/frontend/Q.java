@@ -1,6 +1,7 @@
 package com.example.p2.frontend;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -98,4 +99,5 @@ public class Q extends AppCompatActivity{
             findViewById(R.id.submit).setVisibility(Button.VISIBLE);
         }
     }
+
 }
