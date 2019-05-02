@@ -17,7 +17,7 @@ public class BackendMain {
 
         for (Question question : test.getQuestions() ){
             questionAnswerOptions = question.getQuestionAnswerOptions();
-            question.setAnswer(questionAnswerOptions.getAnswerOptions().get(3));
+            question.setAnswer(questionAnswerOptions.getAnswerOptions().get(1));
         }
 
 

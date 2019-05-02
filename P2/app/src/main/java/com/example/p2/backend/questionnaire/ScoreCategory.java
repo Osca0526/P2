@@ -6,9 +6,14 @@ public class ScoreCategory {
 
     private int categoryScoreCount;
 
+    private int categoryScoreMaximum;
+
+    private int MAX_ANSWER_WEIGHT = 4;
+
     public ScoreCategory(String categoryName){
         this.categoryName = categoryName;
         categoryScoreCount = 0;
+        categoryScoreMaximum = 0;
     }
 
     public String getCategoryName(){
@@ -17,6 +22,7 @@ public class ScoreCategory {
 
     public void increaseCount(int numberToAdd){
         categoryScoreCount += numberToAdd;
+        categoryScoreMaximum += MAX_ANSWER_WEIGHT;
     }
 
     public void decreaseCount(int numberToTake){
@@ -25,6 +31,10 @@ public class ScoreCategory {
 
     public int getCategoryScoreCount(){
         return categoryScoreCount;
+    }
+
+    public int getCategoryScoreMaximum(){
+        return categoryScoreMaximum;
     }
 
 }

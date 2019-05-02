@@ -43,7 +43,9 @@ public class Score {
         for (ScoreCategory category : categories){
             System.out.println("---");
             System.out.println(category.getCategoryName());
-            System.out.println(category.getCategoryScoreCount());
+            System.out.print(category.getCategoryScoreCount());
+            System.out.print(" points out of ");
+            System.out.println(category.getCategoryScoreMaximum());
             System.out.println("---");
         }
     }
