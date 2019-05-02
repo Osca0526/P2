@@ -20,8 +20,6 @@ public class About extends AppCompatActivity {
     public void defineButtons(){
         findViewById(R.id.buttonA1).setOnClickListener(buttonClickListener);
         findViewById(R.id.buttonA2).setOnClickListener(buttonClickListener);
-        findViewById(R.id.buttonA3).setOnClickListener(buttonClickListener);
-        findViewById(R.id.buttonA4).setOnClickListener(buttonClickListener);
     }
 
     private View.OnClickListener buttonClickListener = new View.OnClickListener(){
@@ -34,14 +32,6 @@ public class About extends AppCompatActivity {
                     break;
                 case R.id.buttonA2:
                     startActivity(new Intent(About.this, Result.class));
-                    finish();
-                    break;
-                case R.id.buttonA3:
-                    startActivity(new Intent(About.this, Profile.class));
-                    finish();
-                    break;
-                case R.id.buttonA4:
-                    startActivity(new Intent(About.this, About.class));
                     finish();
                     break;
             }
