@@ -39,11 +39,7 @@ public class Test {
     }
 
     public Question getCurrentQuestion(){
-        if (!testIsCompleted){
-            return questions.get(currentQuestionNumber);
-        }else{
-            return null;
-        }
+        return questions.get(currentQuestionNumber);
     }
 
     public int getNumberOfQuestions(){
@@ -69,6 +65,10 @@ public class Test {
 
     public boolean isCompleted(){
         return testIsCompleted;
+    }
+
+    public ArrayList<Question> getQuestions(){
+        return questions;
     }
 
 

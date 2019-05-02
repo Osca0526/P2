@@ -15,14 +15,11 @@ public class BackendMain {
 
         int inputAnswerFromUser = 1; // to be taken from the user, depending on the answer option
 
-        int[] inputAnswerFromUserArray = {0, 1, 2, 3, 3, 2, 1, 0, 0, 1, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}; // to be taken from the user
-
-        while (!test.isCompleted()){
-            currentQuestion = test.getCurrentQuestion();
-            questionAnswerOptions = currentQuestion.getQuestionAnswerOptions();
-            currentQuestion.setAnswer(questionAnswerOptions.getAnswerOptions().get(inputAnswerFromUserArray[currentQuestion.getQuestionNumber()]));
-            test.nextQuestion();
+        for (Question question : test.getQuestions() ){
+            questionAnswerOptions = question.getQuestionAnswerOptions();
+            question.setAnswer(questionAnswerOptions.getAnswerOptions().get(3));
         }
+
 
         Score testScore = test.getScore();
         testScore.printScore();
