@@ -14,16 +14,12 @@ import java.util.ArrayList;
 
 public class Q extends AppCompatActivity{
 
-
     Test test = new AnTI_Test().getTest();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_q);
-
         defineButtons();
     }
 
@@ -33,19 +29,24 @@ public class Q extends AppCompatActivity{
     }
 
     public void displayQuestions() {
+        int number = test.getCurrentQuestion().getQuestionNumber();
         TextView question = findViewById(R.id.questions);
         String newQuestion = test.getCurrentQuestion().getTextQuestion();
         System.out.print(newQuestion);
         question.setText(newQuestion);
 
         TextView questionNumber = findViewById(R.id.questionNumber);
-        int number = test.getCurrentQuestion().getQuestionNumber();
+
         String numberText = number + "/" + test.getNumberOfQuestions();
         questionNumber.setText(numberText);
+
+        if (number > test.getNumberOfQuestions()) {
+            startActivity(new Intent(Q.this, Result.class));
+            finish();
+        }
     }
 
     public void defineButtons(){
-
         Button answer1 = findViewById(R.id.buttonAnswer1);
         Button answer2 = findViewById(R.id.buttonAnswer2);
         Button answer3 = findViewById(R.id.buttonAnswer3);
@@ -70,47 +71,31 @@ public class Q extends AppCompatActivity{
     private View.OnClickListener buttonClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-
             switch (v.getId()){
                 case R.id.buttonAnswer1:
-                    //startActivity(new Intent(Q.this, Q.class));
-                    //finish();
-                    test.getCurrentQuestion().setAnswer( test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions().get(0));
-                    if(findViewById(R.id.submit).getVisibility() == Button.INVISIBLE) {
-                        findViewById(R.id.submit).setVisibility(Button.VISIBLE);
-                    }
+                    manageAnswer(0);
                     break;
                 case R.id.buttonAnswer2:
-                    //startActivity(new Intent(Q.this, Result.class));
-                    //finish();
-                    test.getCurrentQuestion().setAnswer( test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions().get(1));
-                    if(findViewById(R.id.submit).getVisibility() == Button.INVISIBLE) {
-                        findViewById(R.id.submit).setVisibility(Button.VISIBLE);
-                    }
+                    manageAnswer(1);
                     break;
                 case R.id.buttonAnswer3:
-                    //startActivity(new Intent(Q.this, Profile.class));
-                    //finish();
-                    test.getCurrentQuestion().setAnswer( test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions().get(2));
-                    if(findViewById(R.id.submit).getVisibility() == Button.INVISIBLE) {
-                        findViewById(R.id.submit).setVisibility(Button.VISIBLE);
-                    }
+                    manageAnswer(2);
                     break;
                 case R.id.buttonAnswer4:
-                    //startActivity(new Intent(Q.this, About.class));
-                    //finish();
-                    test.getCurrentQuestion().setAnswer( test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions().get(3));
-                    if(findViewById(R.id.submit).getVisibility() == Button.INVISIBLE) {
-                        findViewById(R.id.submit).setVisibility(Button.VISIBLE);
-                    }
+                    manageAnswer(3);
                     break;
                 case R.id.submit:
-                    //test.submitQuestionAnswer(category, answerWeight);
                     test.nextQuestion();
+                    displayQuestions();
                     break;
             }
         }
     };
 
-
+    public void manageAnswer(int i){
+        test.getCurrentQuestion().setAnswer( test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions().get(i));
+        if(findViewById(R.id.submit).getVisibility() == Button.INVISIBLE) {
+            findViewById(R.id.submit).setVisibility(Button.VISIBLE);
+        }
+    }
 }
