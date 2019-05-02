@@ -35,10 +35,10 @@ public class Activity2 extends AppCompatActivity {
             // this switch statement analyzes the view.getId by defining the buttons using case statements, which checks the id from our view and if it gets the specific ID from one of the following buttons, it will run
             switch (v.getId()){
                 case R.id.button:
-                    startActivity(new Intent(Activity2.this, Q.class));
+                    startActivity(new Intent(Activity2.this, About.class));
                     break;
                 case R.id.button2:
-                    startActivity(new Intent(Activity2.this, About.class));
+                    startActivity(new Intent(Activity2.this, Q.class));
                     break;
 
             }

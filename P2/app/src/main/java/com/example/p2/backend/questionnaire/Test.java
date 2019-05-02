@@ -31,7 +31,7 @@ public class Test {
     }
 
     public void nextQuestion(){
-        if (currentQuestionNumber >= questions.size()){
+        if (currentQuestionNumber >= getNumberOfQuestions()){
             testIsCompleted = true;
         } else{
             currentQuestionNumber++;

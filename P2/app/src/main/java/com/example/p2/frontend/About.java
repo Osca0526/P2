@@ -27,11 +27,11 @@ public class About extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.buttonA1:
-                    startActivity(new Intent(About.this, Q.class));
+                    startActivity(new Intent(About.this, Activity2.class));
                     finish();
                     break;
                 case R.id.buttonA2:
-                    startActivity(new Intent(About.this, Result.class));
+                    startActivity(new Intent(About.this, Q.class));
                     finish();
                     break;
             }

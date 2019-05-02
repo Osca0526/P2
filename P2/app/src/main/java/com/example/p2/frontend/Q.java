@@ -20,54 +20,48 @@ public class Q extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_q);
-        defineButtons();
+        update();
     }
 
     protected void onResume(){
         super.onResume();
-        displayQuestions();
+        update();
     }
 
-    public void displayQuestions() {
-        int number = test.getCurrentQuestion().getQuestionNumber();
-        TextView question = findViewById(R.id.questions);
-        String newQuestion = test.getCurrentQuestion().getTextQuestion();
-        System.out.print(newQuestion);
-        question.setText(newQuestion);
+    public void update() {
+        //creating array for the answer buttons
+        ArrayList<Button> answerButtons = new ArrayList<>();
+        answerButtons.add((Button) findViewById(R.id.buttonAnswer1));
+        answerButtons.add((Button) findViewById(R.id.buttonAnswer2));
+        answerButtons.add((Button) findViewById(R.id.buttonAnswer3));
+        answerButtons.add((Button) findViewById(R.id.buttonAnswer4));
 
-        TextView questionNumber = findViewById(R.id.questionNumber);
-
-        String numberText = number + "/" + test.getNumberOfQuestions();
-        questionNumber.setText(numberText);
-
-        if (number > test.getNumberOfQuestions()) {
-            Intent name = new Intent(Q.this, Result.class);
-            startActivity(name);
-            finish();
-        }
-    }
-
-    public void defineButtons(){
-        Button answer1 = findViewById(R.id.buttonAnswer1);
-        Button answer2 = findViewById(R.id.buttonAnswer2);
-        Button answer3 = findViewById(R.id.buttonAnswer3);
-        Button answer4 = findViewById(R.id.buttonAnswer4);
+        //creating the button for submitting
         Button submitButton = findViewById(R.id.submit);
         submitButton.setVisibility(Button.INVISIBLE);
-
-        answer1.setOnClickListener(buttonClickListener);
-        answer2.setOnClickListener(buttonClickListener);
-        answer3.setOnClickListener(buttonClickListener);
-        answer4.setOnClickListener(buttonClickListener);
         submitButton.setOnClickListener(buttonClickListener);
 
+        //taking the answers from each question
         ArrayList<QuestionAnswerOption> answers = test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions();
 
-        answer1.setText(answers.get(0).getAnswerOptionText());
-        answer2.setText(answers.get(1).getAnswerOptionText());
-        answer3.setText(answers.get(2).getAnswerOptionText());
-        answer4.setText(answers.get(3).getAnswerOptionText());
-    }
+        //setting the text of each button and setting the onClick method
+        for (int i = 0; i < answerButtons.size(); i++) {
+            Button button = answerButtons.get(i);
+            button.setText(answers.get(i).getAnswerOptionText());
+            button.setOnClickListener(buttonClickListener);
+        }
+
+        //adding question text
+        TextView question = findViewById(R.id.questions);
+        String newQuestion = test.getCurrentQuestion().getTextQuestion();
+        question.setText(newQuestion);
+
+        //adding question numbers
+        int number = test.getCurrentQuestion().getQuestionNumber();
+        TextView questionNumber = findViewById(R.id.questionNumber);
+        String numberText = number + "/" + test.getNumberOfQuestions();
+        questionNumber.setText(numberText);
+        }
 
     private View.OnClickListener buttonClickListener = new View.OnClickListener(){
         @Override
@@ -86,8 +80,14 @@ public class Q extends AppCompatActivity{
                     manageAnswer(3);
                     break;
                 case R.id.submit:
-                    test.nextQuestion();
-                    displayQuestions();
+                    if (test.getCurrentQuestion().getQuestionNumber() < test.getNumberOfQuestions()) {
+                        test.nextQuestion();
+                        update();
+                    } else {
+                        Intent result = new Intent(Q.this, Result.class);
+                        startActivity(result);
+                        finish();
+                    }
                     break;
             }
         }
