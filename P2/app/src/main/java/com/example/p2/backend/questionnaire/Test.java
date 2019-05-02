@@ -31,10 +31,10 @@ public class Test {
     }
 
     public void nextQuestion(){
-        currentQuestionNumber++;
-        if (currentQuestionNumber <= questions.size()){
+        if (currentQuestionNumber >= questions.size()){
             testIsCompleted = true;
-            calculateScore();
+        } else{
+            currentQuestionNumber++;
         }
     }
 
@@ -52,10 +52,6 @@ public class Test {
     }
 
     private void calculateTotalScore(){
-
-    }
-
-    private void calculateScore(){
 
     }
 
