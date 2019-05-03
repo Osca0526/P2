@@ -60,7 +60,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="236dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="4dp"
@@ -70,9 +69,7 @@
         app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintEnd_toStartOf="@+id/buttonAnswer3"
         app:layout_constraintHorizontal_bias="0.57"
-        app:layout_constraintStart_toEndOf="@+id/buttonAnswer1"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/buttonAnswer1" />
 
     <Button
         android:id="@+id/buttonAnswer3"
@@ -80,7 +77,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="236dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="4dp"
@@ -89,8 +85,7 @@
         android:textColor="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintEnd_toStartOf="@+id/buttonAnswer4"
-        app:layout_constraintStart_toEndOf="@+id/buttonAnswer2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintStart_toEndOf="@+id/buttonAnswer2" />
 
 
     <Button
@@ -119,9 +114,11 @@
         android:layout_marginTop="330dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="1dp"
         android:background="@drawable/buttonquest"
         android:text="@string/submit_button"
         android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />

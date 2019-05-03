@@ -21,6 +21,7 @@ public class Result extends AppCompatActivity {
         findViewById(R.id.buttonR1).setOnClickListener(buttonClickListener);
     }
 
+
     private View.OnClickListener buttonClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
