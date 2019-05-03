@@ -36,9 +36,11 @@ public class Activity2 extends AppCompatActivity {
             switch (v.getId()){
                 case R.id.button:
                     startActivity(new Intent(Activity2.this, About.class));
+                    finish();
                     break;
                 case R.id.button2:
                     startActivity(new Intent(Activity2.this, Q.class));
+                    finish();
                     break;
 
             }

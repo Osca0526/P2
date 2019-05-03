@@ -43,10 +43,10 @@ public class AnTI_Test {
 
 
         ArrayList<QuestionAnswerOption> options = new ArrayList<>();
-        options.add(new QuestionAnswerOption("Almost never", 1));
+        options.add(new QuestionAnswerOption("Almost \n Never", 1));
         options.add(new QuestionAnswerOption("Sometimes", 2));
         options.add(new QuestionAnswerOption("Often", 3));
-        options.add(new QuestionAnswerOption("Almost Always", 4));
+        options.add(new QuestionAnswerOption("Almost \n Always", 4));
 
         QuestionAnswerOptions questionAnswerOptions = new QuestionAnswerOptions(options);
 

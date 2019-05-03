@@ -1,10 +1,15 @@
 package com.example.p2.frontend;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.Explode;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,6 +21,7 @@ import java.util.ArrayList;
 public class Q extends AppCompatActivity{
 
     Test test = new AnTI_Test().getTest();
+    ArrayList<Button> answerButtons = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +32,12 @@ public class Q extends AppCompatActivity{
 
     protected void onResume(){
         super.onResume();
-        update();
+        //update();
     }
 
     public void update() {
         //creating array for the answer buttons
-        ArrayList<Button> answerButtons = new ArrayList<>();
+        answerButtons.clear();
         answerButtons.add((Button) findViewById(R.id.buttonAnswer1));
         answerButtons.add((Button) findViewById(R.id.buttonAnswer2));
         answerButtons.add((Button) findViewById(R.id.buttonAnswer3));
@@ -50,6 +56,7 @@ public class Q extends AppCompatActivity{
             Button button = answerButtons.get(i);
             button.setText(answers.get(i).getAnswerOptionText());
             button.setOnClickListener(buttonClickListener);
+            button.setTextColor(Color.parseColor("#FFFFFF"));
         }
 
         //adding question text
@@ -65,6 +72,7 @@ public class Q extends AppCompatActivity{
         }
 
     private View.OnClickListener buttonClickListener = new View.OnClickListener(){
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onClick(View v) {
             switch (v.getId()){
@@ -85,8 +93,8 @@ public class Q extends AppCompatActivity{
                         test.nextQuestion();
                         update();
                     } else {
-                        Intent result = new Intent(Q.this, Result_Chart.class);
-                        result.putExtra("test", test);
+                        Intent result = new Intent(Q.this, Result.class);
+                        //result.putExtra("test", test);
                         startActivity(result);
                         finish();
                     }
@@ -100,6 +108,12 @@ public class Q extends AppCompatActivity{
         if(findViewById(R.id.submit).getVisibility() == Button.INVISIBLE) {
             findViewById(R.id.submit).setVisibility(Button.VISIBLE);
         }
+        for (int y = 0; y < answerButtons.size(); y++) {
+            if (y == i){
+                answerButtons.get(y).setTextColor(Color.parseColor("#000000"));
+            } else {
+                answerButtons.get(y).setTextColor(Color.parseColor("#FFFFFF"));
+            }
+        }
     }
-
 }

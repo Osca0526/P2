@@ -27,7 +27,7 @@ public class Result extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.buttonR1:
-                    startActivity(new Intent(Result.this, Q.class));
+                    startActivity(new Intent(Result.this, Activity2.class));
                     finish();
                     break;
             }
