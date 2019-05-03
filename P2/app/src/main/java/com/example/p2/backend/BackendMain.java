@@ -8,8 +8,6 @@ public class BackendMain {
 
         Test test = new AnTI_Test().getTest();
 
-        test.startTest();
-
         Question currentQuestion = null;
         QuestionAnswerOptions questionAnswerOptions = null;
 
@@ -23,6 +21,7 @@ public class BackendMain {
 
         Score testScore = test.getScore();
         testScore.printScore();
+        System.out.println(testScore.getJSArrayString());
 
         System.out.println("done.");
 

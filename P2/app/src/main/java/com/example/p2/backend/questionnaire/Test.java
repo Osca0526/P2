@@ -1,8 +1,11 @@
 package com.example.p2.backend.questionnaire;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class Test {
+public class Test implements Parcelable {
 
     private ArrayList<Question> questions;
 
@@ -26,12 +29,14 @@ public class Test {
         testIsCompleted = false;
     }
 
-    public void startTest(){
-
+    public Test(Parcel in){
+        questions =  in.readArrayList(Test.class.getClassLoader());
+        score = (Score) in.readValue(Test.class.getClassLoader());
+        categories =  in.readArrayList(Test.class.getClassLoader());
     }
 
     public void nextQuestion(){
-        if (currentQuestionNumber >= questions.size()){
+        if (currentQuestionNumber >= getNumberOfQuestions()){
             testIsCompleted = true;
         } else{
             currentQuestionNumber++;
@@ -67,5 +72,28 @@ public class Test {
         return questions;
     }
 
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(questions);
+        dest.writeValue(score);
+        dest.writeValue(categories);
+    }
+
+    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
+    public static final Parcelable.Creator<Test> CREATOR = new Parcelable.Creator<Test>() {
+        public Test createFromParcel(Parcel in) {
+            return new Test(in);
+        }
+
+        public Test[] newArray(int size) {
+            return new Test[size];
+        }
+    };
 
 }

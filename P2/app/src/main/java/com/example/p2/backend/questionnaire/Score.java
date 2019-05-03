@@ -1,14 +1,17 @@
 package com.example.p2.backend.questionnaire;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Score {
 
     private int numberOfCategories;
 
-    ArrayList<ScoreCategory> categories;
+    private ArrayList<ScoreCategory> categories;
 
     private boolean isCompleted;
+
+    private Locale stringLocale = Locale.getAvailableLocales()[18]; // en_US
 
     public Score(ArrayList<ScoreCategory> categories){
 
@@ -48,6 +51,20 @@ public class Score {
             System.out.println(category.getCategoryScoreMaximum());
             System.out.println("---");
         }
+    }
+
+    public String getJSArrayString(){
+        String resultString = "['Category', 'Your Score', 'Maximum'],\n";
+        for (ScoreCategory category : categories){
+            resultString = resultString.concat(String.format(stringLocale,
+                    "['%s', %d, %d],\n",
+                    category.getCategoryName(), category.getCategoryScoreCount(), category.getCategoryScoreMaximum()));
+        }
+        return resultString;
+    }
+
+    public Locale getStringLocale(){
+        return stringLocale;
     }
 
 }
