@@ -28,12 +28,30 @@ public class Test implements Parcelable {
         currentQuestionNumber = 0;
         testIsCompleted = false;
     }
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(score);
+    }
 
     public Test(Parcel in){
-        questions =  in.readArrayList(Test.class.getClassLoader());
-        score = (Score) in.readValue(Test.class.getClassLoader());
-        categories =  in.readArrayList(Test.class.getClassLoader());
+        score = in.readParcelable(Test.class.getClassLoader());
     }
+
+    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
+    public static final Parcelable.Creator<Test> CREATOR = new Parcelable.Creator<Test>() {
+        public Test createFromParcel(Parcel in) {
+            return new Test(in);
+        }
+
+        public Test[] newArray(int size) {
+            return new Test[size];
+        }
+    };
 
     public void nextQuestion(){
         if (currentQuestionNumber >= getNumberOfQuestions()){
@@ -73,27 +91,6 @@ public class Test implements Parcelable {
     }
 
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(questions);
-        dest.writeValue(score);
-        dest.writeValue(categories);
-    }
-
-    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
-    public static final Parcelable.Creator<Test> CREATOR = new Parcelable.Creator<Test>() {
-        public Test createFromParcel(Parcel in) {
-            return new Test(in);
-        }
-
-        public Test[] newArray(int size) {
-            return new Test[size];
-        }
-    };
 
 }

@@ -20,7 +20,6 @@ public class AnTI_Test {
     }
 
     private void generateTestData(){
-
         ArrayList<ScoreCategory> scoreCategories = generateScoreCategories();
 
         ArrayList<Question> questions = generateQuestions(scoreCategories);
