@@ -22,36 +22,12 @@ public class Test implements Parcelable {
         this.categories = categories;
         calculateTotalScore();
         score = new Score(categories);
-        for (Question question : questions){
+        /*for (Question question : questions){
             question.setTest(this);
-        }
+        }*/
         currentQuestionNumber = 0;
         testIsCompleted = false;
     }
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(score);
-    }
-
-    public Test(Parcel in){
-        score = in.readParcelable(Test.class.getClassLoader());
-    }
-
-    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
-    public static final Parcelable.Creator<Test> CREATOR = new Parcelable.Creator<Test>() {
-        public Test createFromParcel(Parcel in) {
-            return new Test(in);
-        }
-
-        public Test[] newArray(int size) {
-            return new Test[size];
-        }
-    };
 
     public void nextQuestion(){
         if (currentQuestionNumber >= getNumberOfQuestions()){
@@ -90,7 +66,58 @@ public class Test implements Parcelable {
         return questions;
     }
 
+    protected Test(Parcel in) {
+        if (in.readByte() == 0x01) {
+            questions = new ArrayList<>();
+            in.readList(questions, Question.class.getClassLoader());
+        } else {
+            questions = null;
+        }
+        score = (Score) in.readValue(Score.class.getClassLoader());
+        if (in.readByte() == 0x01) {
+            categories = new ArrayList<>();
+            in.readList(categories, ScoreCategory.class.getClassLoader());
+        } else {
+            categories = null;
+        }
+        currentQuestionNumber = in.readInt();
+        testIsCompleted = in.readByte() != 0x00;
+    }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (questions == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(questions);
+        }
+        dest.writeValue(score);
+        if (categories == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(categories);
+        }
+        dest.writeInt(currentQuestionNumber);
+        dest.writeByte((byte) (testIsCompleted ? 0x01 : 0x00));
+    }
 
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Test> CREATOR = new Parcelable.Creator<Test>() {
+        @Override
+        public Test createFromParcel(Parcel in) {
+            return new Test(in);
+        }
+
+        @Override
+        public Test[] newArray(int size) {
+            return new Test[size];
+        }
+    };
 }

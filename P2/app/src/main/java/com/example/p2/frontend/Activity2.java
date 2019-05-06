@@ -47,7 +47,6 @@ public class Activity2 extends AppCompatActivity {
         }
     };
 
-
     @Override
     public void onBackPressed(){
 

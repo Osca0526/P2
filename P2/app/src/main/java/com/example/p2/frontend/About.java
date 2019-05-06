@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.p2.R;
 
 public class About extends AppCompatActivity {
+
+    private long backPressedTime;
+    private Toast backToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +41,4 @@ public class About extends AppCompatActivity {
             }
         }
     };
-
-    /*
-    @Override
-    public void onBackPressed(){
-        startActivity(new Intent(About.this,Activity2.class));
-    }
-    */
 }

@@ -1,6 +1,9 @@
 package com.example.p2.backend.questionnaire;
 
-public class Question {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Question implements Parcelable {
 
     private String textQuestion;
 
@@ -12,7 +15,7 @@ public class Question {
 
     private int questionNumber;
 
-    private Test test;
+    //private Test test;
 
     public Question(String textQuestion, ScoreCategory category, QuestionAnswerOptions questionAnswerOptions, int questionNumber){
         this.textQuestion = textQuestion;
@@ -22,13 +25,13 @@ public class Question {
         this.questionNumber = questionNumber;
     }
 
-    public void setTest(Test test){
+    /*public void setTest(Test test){
         this.test = test;
-    }
+    }*/
 
     public void setAnswer(QuestionAnswerOption answerOption){
         answerWeight = answerOption.getAnswerOptionWeight();
-        test.submitQuestionAnswer(category, answerWeight);
+        //test.submitQuestionAnswer(category, answerWeight);
     }
 
     public ScoreCategory getCategory(){
@@ -56,4 +59,41 @@ public class Question {
     }
 
 
+
+    protected Question(Parcel in) {
+        textQuestion = in.readString();
+        category = (ScoreCategory) in.readValue(ScoreCategory.class.getClassLoader());
+        questionAnswerOptions = (QuestionAnswerOptions) in.readValue(QuestionAnswerOptions.class.getClassLoader());
+        answerWeight = in.readInt();
+        questionNumber = in.readInt();
+        //test = (Test) in.readValue(Test.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(textQuestion);
+        dest.writeValue(category);
+        dest.writeValue(questionAnswerOptions);
+        dest.writeInt(answerWeight);
+        dest.writeInt(questionNumber);
+        //dest.writeValue(test);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Question> CREATOR = new Parcelable.Creator<Question>() {
+        @Override
+        public Question createFromParcel(Parcel in) {
+            return new Question(in);
+        }
+
+        @Override
+        public Question[] newArray(int size) {
+            return new Question[size];
+        }
+    };
 }
