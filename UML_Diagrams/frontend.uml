@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.example.p2.frontend</OriginalElement>
+  <nodes>
+    <node x="69.25" y="639.0">com.example.p2.frontend.MainActivity</node>
+    <node x="101.25" y="0.0">com.example.p2.frontend.ResultActivity</node>
+    <node x="0.0" y="191.0">com.example.p2.frontend.TestActivity</node>
+    <node x="93.25" y="852.0">com.example.p2.frontend.StartActivity</node>
+    <node x="69.25" y="448.0">com.example.p2.frontend.AboutActivity</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.p2.frontend.ResultActivity" target="com.example.p2.frontend.MainActivity">
+      <point x="64.0" y="70.5" />
+      <point x="293.25" y="166.0" />
+      <point x="335.75" y="166.0" />
+      <point x="335.75" y="614.0" />
+      <point x="293.25" y="614.0" />
+      <point x="96.0" y="-81.5" />
+    </edge>
+    <edge source="com.example.p2.frontend.StartActivity" target="com.example.p2.frontend.MainActivity">
+      <point x="0.0" y="-37.0" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="com.example.p2.frontend.MainActivity" target="com.example.p2.frontend.AboutActivity">
+      <point x="-32.0" y="-81.5" />
+      <point x="165.25" y="614.0" />
+      <point x="133.25" y="614.0" />
+      <point x="-64.0" y="70.5" />
+    </edge>
+    <edge source="com.example.p2.frontend.AboutActivity" target="com.example.p2.frontend.TestActivity">
+      <point x="0.0" y="-70.5" />
+      <point x="197.25" y="423.0" />
+      <point x="192.0" y="423.0" />
+      <point x="64.0" y="103.5" />
+    </edge>
+    <edge source="com.example.p2.frontend.AboutActivity" target="com.example.p2.frontend.MainActivity">
+      <point x="64.0" y="70.5" />
+      <point x="261.25" y="614.0" />
+      <point x="229.25" y="614.0" />
+      <point x="32.0" y="-81.5" />
+    </edge>
+    <edge source="com.example.p2.frontend.TestActivity" target="com.example.p2.frontend.ResultActivity">
+      <point x="0.0" y="-103.5" />
+      <point x="128.0" y="166.0" />
+      <point x="165.25" y="166.0" />
+      <point x="-64.0" y="70.5" />
+    </edge>
+    <edge source="com.example.p2.frontend.MainActivity" target="com.example.p2.frontend.TestActivity">
+      <point x="-96.0" y="-81.5" />
+      <point x="101.25" y="614.0" />
+      <point x="58.75" y="614.0" />
+      <point x="58.75" y="423.0" />
+      <point x="64.0" y="423.0" />
+      <point x="-64.0" y="103.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="307.0" y="300.0" />
+  <SelectedNodes>
+    <node>com.example.p2.frontend.MainActivity</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
