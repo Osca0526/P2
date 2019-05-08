@@ -32,10 +32,12 @@ public class About extends AppCompatActivity {
             switch (v.getId()){
                 case R.id.buttonA1:
                     startActivity(new Intent(About.this, Activity2.class));
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();
                     break;
                 case R.id.buttonA2:
                     startActivity(new Intent(About.this, Q.class));
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();
                     break;
             }

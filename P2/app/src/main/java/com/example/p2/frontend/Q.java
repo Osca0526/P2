@@ -1,15 +1,10 @@
 package com.example.p2.frontend;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.transition.Explode;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,6 +17,7 @@ public class Q extends AppCompatActivity{
 
     Test test = new AnTI_Test().getTest();
     ArrayList<Button> answerButtons = new ArrayList<>();
+    int answerNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,30 +68,35 @@ public class Q extends AppCompatActivity{
         }
 
     private View.OnClickListener buttonClickListener = new View.OnClickListener(){
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.buttonAnswer1:
-                    manageAnswer(0);
+                    answerNumber = 0;
+                    manageAnswer();
                     break;
                 case R.id.buttonAnswer2:
-                    manageAnswer(1);
+                    answerNumber = 1;
+                    manageAnswer();
                     break;
                 case R.id.buttonAnswer3:
-                    manageAnswer(2);
+                    answerNumber = 2;
+                    manageAnswer();
                     break;
                 case R.id.buttonAnswer4:
-                    manageAnswer(3);
+                    answerNumber = 3;
+                    manageAnswer();
                     break;
                 case R.id.submit:
                     if (test.getCurrentQuestion().getQuestionNumber() < test.getNumberOfQuestions()) {
                         test.nextQuestion();
+                        test.submitQuestionAnswer(test.getCurrentQuestion().getCategory(),test.getCurrentQuestion().setAnswer(test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions().get(answerNumber)));
                         update();
                     } else {
-                        Intent result = new Intent(Q.this, Result_Chart.class);
+                        Intent result = new Intent(Q.this, Result.class);
                         result.putExtra("test", test);
                         startActivity(result);
+                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                         finish();
                     }
                     break;
@@ -103,13 +104,12 @@ public class Q extends AppCompatActivity{
         }
     };
 
-    public void manageAnswer(int i){
-        test.getCurrentQuestion().setAnswer(test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions().get(i));
+    public void manageAnswer(){
         if(findViewById(R.id.submit).getVisibility() == Button.INVISIBLE) {
             findViewById(R.id.submit).setVisibility(Button.VISIBLE);
         }
         for (int y = 0; y < answerButtons.size(); y++) {
-            if (y == i){
+            if (y == answerNumber){
                 answerButtons.get(y).setTextColor(Color.parseColor("#000000"));
             } else {
                 answerButtons.get(y).setTextColor(Color.parseColor("#FFFFFF"));

@@ -23,7 +23,6 @@ public class Score implements Parcelable {
         numberOfCategories = categories.size();
 
         isCompleted = false;
-
     }
 
     public void addScore(ScoreCategory category, int answerWeight){

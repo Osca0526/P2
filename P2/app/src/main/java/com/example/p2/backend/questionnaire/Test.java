@@ -22,9 +22,6 @@ public class Test implements Parcelable {
         this.categories = categories;
         calculateTotalScore();
         score = new Score(categories);
-        /*for (Question question : questions){
-            question.setTest(this);
-        }*/
         currentQuestionNumber = 0;
         testIsCompleted = false;
     }

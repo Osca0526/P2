@@ -15,7 +15,6 @@ public class Question implements Parcelable {
 
     private int questionNumber;
 
-    //private Test test;
 
     public Question(String textQuestion, ScoreCategory category, QuestionAnswerOptions questionAnswerOptions, int questionNumber){
         this.textQuestion = textQuestion;
@@ -25,13 +24,9 @@ public class Question implements Parcelable {
         this.questionNumber = questionNumber;
     }
 
-    /*public void setTest(Test test){
-        this.test = test;
-    }*/
 
-    public void setAnswer(QuestionAnswerOption answerOption){
-        answerWeight = answerOption.getAnswerOptionWeight();
-        //test.submitQuestionAnswer(category, answerWeight);
+    public int setAnswer(QuestionAnswerOption answerOption){
+        return answerOption.getAnswerOptionWeight();
     }
 
     public ScoreCategory getCategory(){
@@ -66,7 +61,6 @@ public class Question implements Parcelable {
         questionAnswerOptions = (QuestionAnswerOptions) in.readValue(QuestionAnswerOptions.class.getClassLoader());
         answerWeight = in.readInt();
         questionNumber = in.readInt();
-        //test = (Test) in.readValue(Test.class.getClassLoader());
     }
 
     @Override
@@ -81,7 +75,6 @@ public class Question implements Parcelable {
         dest.writeValue(questionAnswerOptions);
         dest.writeInt(answerWeight);
         dest.writeInt(questionNumber);
-        //dest.writeValue(test);
     }
 
     @SuppressWarnings("unused")

@@ -1,5 +1,6 @@
 package com.example.p2.frontend;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
@@ -15,6 +16,7 @@ public class Result_Chart extends AppCompatActivity {
 
     private Score scoreResult;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,7 @@ public class Result_Chart extends AppCompatActivity {
         scoreResult = test.getScore();
 
         setContentView(R.layout.activity_result_wip);
-        WebView webview = (WebView) findViewById(R.id.webView1);
+        WebView webview = findViewById(R.id.webView1);
         String content = String.format(
                 scoreResult.getStringLocale(),
                 "<html>"
@@ -35,7 +37,12 @@ public class Result_Chart extends AppCompatActivity {
                 + "      google.setOnLoadCallback(drawChart);"
                 + "      function drawChart() {"
                 + "        var data = google.visualization.arrayToDataTable(["
-                + "          %s ]);"
+                + "          ['Year', 'Sales', 'Expenses'],"
+                + "          ['2010',  1000,      400],"
+                + "          ['2011',  1170,      460],"
+                + "          ['2012',  660,       1120],"
+                + "          ['2013',  1030,      540]"
+                + "        ]);"
                 + "        var options = {"
                 + "          title: 'Truiton Performance',"
                 + "          hAxis: {title: 'Year', titleTextStyle: {color: 'red'}}"
@@ -56,5 +63,4 @@ public class Result_Chart extends AppCompatActivity {
         webview.requestFocusFromTouch();
         webview.loadDataWithBaseURL( "file:///android_asset/", content, "text/html", "utf-8", null );
     }
-
 }
