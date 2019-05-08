@@ -13,7 +13,7 @@ import com.example.p2.R;
 
 import java.util.ArrayList;
 
-public class Q extends AppCompatActivity{
+public class TestActivity extends AppCompatActivity{
 
     Test test = new AnTI_Test().getTest();
     ArrayList<Button> answerButtons = new ArrayList<>();
@@ -22,7 +22,7 @@ public class Q extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_q);
+        setContentView(R.layout.activity_test);
         update();
     }
 
@@ -93,7 +93,7 @@ public class Q extends AppCompatActivity{
                         test.submitQuestionAnswer(test.getCurrentQuestion().getCategory(),test.getCurrentQuestion().setAnswer(test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions().get(answerNumber)));
                         update();
                     } else {
-                        Intent result = new Intent(Q.this, Result.class);
+                        Intent result = new Intent(TestActivity.this, ResultActivity.class);
                         result.putExtra("test", test);
                         startActivity(result);
                         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

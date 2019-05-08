@@ -19,7 +19,7 @@ import com.github.mikephil.charting.data.BarEntry;
 
 import java.util.ArrayList;
 
-public class Result extends AppCompatActivity {
+public class ResultActivity extends AppCompatActivity {
 
     private Score scoreResult;
 
@@ -107,7 +107,7 @@ public class Result extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.buttonR1:
-                    startActivity(new Intent(Result.this, Activity2.class));
+                    startActivity(new Intent(ResultActivity.this, MainActivity.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();
                     break;

@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import com.example.p2.R;
 
-public class About extends AppCompatActivity {
+public class AboutActivity extends AppCompatActivity {
 
     private long backPressedTime;
     private Toast backToast;
@@ -31,12 +31,12 @@ public class About extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.buttonA1:
-                    startActivity(new Intent(About.this, Activity2.class));
+                    startActivity(new Intent(AboutActivity.this, MainActivity.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();
                     break;
                 case R.id.buttonA2:
-                    startActivity(new Intent(About.this, Q.class));
+                    startActivity(new Intent(AboutActivity.this, TestActivity.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();
                     break;

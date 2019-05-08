@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".frontend.About"></activity>
-        <activity android:name=".frontend.Result" />
+        <activity android:name=".frontend.AboutActivity"></activity>
+        <activity android:name=".frontend.ResultActivity" />
         <activity android:name=".frontend.Result_Chart" />
-        <activity android:name=".frontend.Q" />
-        <activity android:name=".frontend.Activity2" />
-        <activity android:name=".frontend.MainActivity">
+        <activity android:name=".frontend.TestActivity" />
+        <activity android:name=".frontend.MainActivity" />
+        <activity android:name=".frontend.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
