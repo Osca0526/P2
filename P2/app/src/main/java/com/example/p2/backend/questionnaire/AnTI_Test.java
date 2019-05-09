@@ -16,20 +16,22 @@ public class AnTI_Test {
 
     public AnTI_Test(){
         generateTestData();
-        //generateEmptyData();
     }
 
     private void generateTestData(){
+
         ArrayList<ScoreCategory> scoreCategories = generateScoreCategories();
 
         ArrayList<Question> questions = generateQuestions(scoreCategories);
 
         test = new Test(questions, scoreCategories);
+
     }
 
-    private void generateEmptyData(){
-        test = new Test(null, null);
+    public Test getTest(){
+        return test;
     }
+
 
     private ArrayList<ScoreCategory> generateScoreCategories(){
         ArrayList<ScoreCategory> scoreCategories = new ArrayList<>();
@@ -208,10 +210,6 @@ public class AnTI_Test {
 
 
         return questions;
-    }
-
-    public Test getTest(){
-        return test;
     }
 
 }

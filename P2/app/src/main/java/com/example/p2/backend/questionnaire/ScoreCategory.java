@@ -30,6 +30,7 @@ public class ScoreCategory implements Parcelable {
 
     public void decreaseCount(int numberToTake){
         categoryScoreCount -= numberToTake;
+        categoryScoreMaximum -= MAX_ANSWER_WEIGHT;
     }
 
     public int getCategoryScoreCount(){
