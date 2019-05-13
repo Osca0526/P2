@@ -74,7 +74,7 @@ public class AnTI_Test {
         ) );
 
         questions.add( new Question(
-                "If I experience unexpected physical symptoms, I have a tendency to think the worst possible thing is wrong with me",
+                "If I experience unexpected physical symptoms, I have a tendency to think the worst possible thing is wrong with me.",
                 scoreCategories.get(0),
                 questionAnswerOptions,
                 4

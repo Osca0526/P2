@@ -1,6 +1,7 @@
 package com.example.p2.frontend;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,6 +12,7 @@ import com.example.p2.backend.questionnaire.Score;
 import com.example.p2.backend.questionnaire.Test;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -57,8 +59,10 @@ public class ResultActivity extends AppCompatActivity {
         barEntries2.add( new BarEntry(5f, maxHealthScore));
         barEntries1.add( new BarEntry(7f, metaScore));
         barEntries2.add( new BarEntry(8f, maxMetaScore));
-        BarDataSet barDataSet1 = new BarDataSet(barEntries1, "Score");
+        BarDataSet barDataSet1 = new BarDataSet(barEntries1, "Your Score");
         BarDataSet barDataSet2 = new BarDataSet(barEntries2, "Maximum Score");
+        barDataSet1.setColors(Color.parseColor("#B8BAFF"));
+        barDataSet2.setColors(Color.parseColor("#5C5D80"));
 
         ArrayList<String> categories = new ArrayList<>();
         categories.add(scoreResult.getScore().get(0).getCategoryName());
@@ -68,32 +72,34 @@ public class ResultActivity extends AppCompatActivity {
         //creating the chart
         BarData data = new BarData(barDataSet1, barDataSet2);
         data.setValueTextSize(14f);
-        //data.setValueTextColors();
+        data.setValueTextColor(Color.WHITE);
+
         //setting the data to the chart
         barChart.setData(data);
-        //barChart.groupBars(0,20,1);
+
         //accessing the x and y axis
-        YAxis yAxisLeft = barChart.getAxisLeft();
-        yAxisLeft.setAxisMinimum(0);
-        yAxisLeft.setAxisMaximum(max(maxSocialScore,maxHealthScore,maxMetaScore));
-        yAxisLeft.setTextSize(20f);
-
-        YAxis yAxisRight = barChart.getAxisRight();
-        //yAxisRight.setAxisMinimum(0);
-        //yAxisRight.setAxisMaximum(max(maxSocialScore,maxHealthScore,maxMetaScore));
-        yAxisRight.setDrawGridLines(false);
-        yAxisRight.setDrawLabels(false);
-
         XAxis xAxis = barChart.getXAxis();
         xAxis.setDrawLabels(false);
         xAxis.setDrawGridLines(false);
         xAxis.setCenterAxisLabels(true);
 
+        YAxis yAxisLeft = barChart.getAxisLeft();
+        yAxisLeft.setAxisMinimum(0);
+        yAxisLeft.setAxisMaximum(max(maxSocialScore,maxHealthScore,maxMetaScore));
+        yAxisLeft.setTextSize(16f);
+        yAxisLeft.setTextColor(Color.WHITE);
+
+        YAxis yAxisRight = barChart.getAxisRight();
+        yAxisRight.setDrawGridLines(false);
+        yAxisRight.setDrawLabels(false);
+
         Description DescText = barChart.getDescription();
         DescText.setEnabled(false);
-        barChart.setDescription(DescText);
+
+        Legend legend = barChart.getLegend();
+        legend.setTextColor(Color.WHITE);
         barChart.setFitBars(true);
-        barChart.setTouchEnabled(true);
+        barChart.setTouchEnabled(false);
         barChart.animateY(2000);
         barChart.invalidate();
     }
@@ -123,5 +129,10 @@ public class ResultActivity extends AppCompatActivity {
             }
         }
         return max;
+    }
+
+    public void onBackPressed(){
+        super.onBackPressed();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }

@@ -42,25 +42,23 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.button2:
                     startActivity(new Intent(MainActivity.this, TestActivity.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    finish();
                     break;
-
             }
         }
     };
 
     @Override
     public void onBackPressed() {
-
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             backToast.cancel();
             super.onBackPressed();
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            finish();
             return;
         } else {
             backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
             backToast.show();
         }
-
         backPressedTime = System.currentTimeMillis();
     }
 }

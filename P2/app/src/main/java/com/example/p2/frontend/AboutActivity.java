@@ -1,24 +1,19 @@
 package com.example.p2.frontend;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.p2.R;
 
 public class AboutActivity extends AppCompatActivity {
-
-    private long backPressedTime;
-    private Toast backToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         defineButtons();
-
     }
 
     public void defineButtons(){
@@ -38,9 +33,16 @@ public class AboutActivity extends AppCompatActivity {
                 case R.id.buttonA2:
                     startActivity(new Intent(AboutActivity.this, TestActivity.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    finish();
                     break;
             }
         }
     };
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        startActivity(new Intent(AboutActivity.this, MainActivity.class));
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        //finish();
+    }
 }
