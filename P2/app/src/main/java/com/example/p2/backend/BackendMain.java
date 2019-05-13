@@ -21,7 +21,6 @@ public class BackendMain {
 
         Score testScore = test.getScore();
         testScore.printScore();
-        System.out.println(testScore.getJSArrayString());
 
         System.out.println("done.");
 

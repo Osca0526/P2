@@ -20,7 +20,6 @@ public class Test implements Parcelable {
     public Test(ArrayList<Question> questions, ArrayList<ScoreCategory> categories){
         this.questions = questions;
         this.categories = categories;
-        calculateTotalScore();
         score = new Score(categories);
         currentQuestionNumber = 0;
         testIsCompleted = false;
@@ -42,13 +41,8 @@ public class Test implements Parcelable {
         return questions.size();
     }
 
-
     public void submitQuestionAnswer(ScoreCategory scoreCategory, int weight){
         score.addScore(scoreCategory, weight);
-    }
-
-    private void calculateTotalScore(){
-
     }
 
     public Score getScore(){

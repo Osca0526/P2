@@ -12,25 +12,16 @@ public class Score implements Parcelable {
 
     private ArrayList<ScoreCategory> categories;
 
-    private boolean isCompleted;
-
-    private Locale stringLocale = Locale.getAvailableLocales()[18]; // en_US
-
     public Score(ArrayList<ScoreCategory> categories){
 
         this.categories = categories;
 
         numberOfCategories = categories.size();
 
-        isCompleted = false;
     }
 
     public void addScore(ScoreCategory category, int answerWeight){
         category.increaseCount(answerWeight);
-    }
-
-    public void setScoreCompleted(){
-        isCompleted = true;
     }
 
     public ArrayList<ScoreCategory> getScore(){
@@ -38,8 +29,7 @@ public class Score implements Parcelable {
     }
 
     public void printScore(){
-        System.out.println("\n Score: \n" +
-                "\n Is completed: " + isCompleted);
+        System.out.println("\n Score: \n");
         printCategories();
     }
 
@@ -55,20 +45,6 @@ public class Score implements Parcelable {
         }
     }
 
-    public String getJSArrayString(){
-        String resultString = "['Category', 'Your Score', 'Maximum'],\n";
-        for (ScoreCategory category : categories){
-            resultString = resultString.concat(String.format(stringLocale,
-                    "['%s', %d, %d],\n",
-                    category.getCategoryName(), category.getCategoryScoreCount(), category.getCategoryScoreMaximum()));
-        }
-        return resultString;
-    }
-
-    public Locale getStringLocale(){
-        return stringLocale;
-    }
-
 
     protected Score(Parcel in) {
         numberOfCategories = in.readInt();
@@ -78,8 +54,6 @@ public class Score implements Parcelable {
         } else {
             categories = null;
         }
-        isCompleted = in.readByte() != 0x00;
-        stringLocale = (Locale) in.readValue(Locale.class.getClassLoader());
     }
 
     @Override
@@ -96,8 +70,6 @@ public class Score implements Parcelable {
             dest.writeByte((byte) (0x01));
             dest.writeList(categories);
         }
-        dest.writeByte((byte) (isCompleted ? 0x01 : 0x00));
-        dest.writeValue(stringLocale);
     }
 
     @SuppressWarnings("unused")
