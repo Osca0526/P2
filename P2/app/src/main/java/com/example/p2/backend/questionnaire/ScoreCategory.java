@@ -62,7 +62,10 @@ public class ScoreCategory implements Parcelable {
         categoryName = in.readString();
         categoryScoreCount = in.readInt();
         categoryScoreMaximum = in.readInt();
+        categoryScoreMinimum = in.readInt();
         MAX_ANSWER_WEIGHT = in.readInt();
+        MIN_ANSWER_WEIGHT = in.readInt();
+        categoryAverage = in.readFloat();
     }
 
     @Override
@@ -75,7 +78,10 @@ public class ScoreCategory implements Parcelable {
         dest.writeString(categoryName);
         dest.writeInt(categoryScoreCount);
         dest.writeInt(categoryScoreMaximum);
+        dest.writeInt(categoryScoreMinimum);
         dest.writeInt(MAX_ANSWER_WEIGHT);
+        dest.writeInt(MIN_ANSWER_WEIGHT);
+        dest.writeFloat(categoryAverage);
     }
 
     @SuppressWarnings("unused")
@@ -90,5 +96,4 @@ public class ScoreCategory implements Parcelable {
             return new ScoreCategory[size];
         }
     };
-
 }

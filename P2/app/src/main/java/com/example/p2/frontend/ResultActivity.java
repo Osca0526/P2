@@ -23,16 +23,14 @@ import java.util.ArrayList;
 
 public class ResultActivity extends AppCompatActivity {
 
-    private Score scoreResult;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        defineButtons();
+        findViewById(R.id.buttonR1).setOnClickListener(buttonClickListener);
         Intent intent = getIntent();
         Test test = intent.getParcelableExtra("test");
-        scoreResult = test.getScore();
+        Score scoreResult = test.getScore();
 
         TextView socialScoreTitle = findViewById(R.id.socialScore);
         TextView healthScoreTitle = findViewById(R.id.healthScore);
@@ -65,36 +63,32 @@ public class ResultActivity extends AppCompatActivity {
         ArrayList<BarEntry> barAvg = new ArrayList<>();
 
         barScore.add( new BarEntry(1f, socialScore));
-        barMax.add( new BarEntry(2f, maxSocialScore));
-        barMin.add( new BarEntry(3f, minSocialScore));
-        barAvg.add( new BarEntry(4f, avgSocialScore));
+        barMin.add( new BarEntry(2f, minSocialScore));
+        barAvg.add( new BarEntry(3f, avgSocialScore));
+        barMax.add( new BarEntry(4f, maxSocialScore));
 
         barScore.add( new BarEntry(6f, healthScore));
-        barMax.add( new BarEntry(7f, maxHealthScore));
-        barMin.add( new BarEntry(8f, minHealthScore));
-        barAvg.add( new BarEntry(9f, avgHealthScore));
+        barMin.add( new BarEntry(7f, minHealthScore));
+        barAvg.add( new BarEntry(8f, avgHealthScore));
+        barMax.add( new BarEntry(9f, maxHealthScore));
 
         barScore.add( new BarEntry(11f, metaScore));
-        barMax.add( new BarEntry(12f, maxMetaScore));
-        barMin.add( new BarEntry(13f, minMetaScore));
-        barAvg.add( new BarEntry(14f, avgMetaScore));
+        barMin.add( new BarEntry(12f, minMetaScore));
+        barAvg.add( new BarEntry(13f, avgMetaScore));
+        barMax.add( new BarEntry(14f, maxMetaScore));
 
         BarDataSet barDataSet1 = new BarDataSet(barScore, "Your Score");
-        BarDataSet barDataSet2 = new BarDataSet(barMax, "Maximum Score");
-        BarDataSet barDataSet3 = new BarDataSet(barMin, "Minimum Score");
-        BarDataSet barDataSet4 = new BarDataSet(barAvg, "Average Score");
-        barDataSet1.setColors(Color.parseColor("#B8BAFF"));
-        barDataSet2.setColors(Color.parseColor("#5C5D80"));
-        barDataSet3.setColors(Color.parseColor("#5C5D81"));
-        barDataSet4.setColors(Color.parseColor("#5C5D82"));
+        BarDataSet barDataSet2 = new BarDataSet(barMin, "Minimum Score");
+        BarDataSet barDataSet3 = new BarDataSet(barAvg, "Average Score");
+        BarDataSet barDataSet4 = new BarDataSet(barMax, "Maximum Score");
 
-        ArrayList<String> categories = new ArrayList<>();
-        categories.add(scoreResult.getScore().get(0).getCategoryName());
-        categories.add(scoreResult.getScore().get(1).getCategoryName());
-        categories.add(scoreResult.getScore().get(2).getCategoryName());
+        barDataSet1.setColors(Color.parseColor("#fffd6b"));
+        barDataSet2.setColors(Color.parseColor("#B8BAFF"));
+        barDataSet3.setColors(Color.parseColor("#565ACB"));
+        barDataSet4.setColors(Color.parseColor("#363880"));
 
         //creating the chart
-        BarData data = new BarData(barDataSet1, barDataSet2, barDataSet3,barDataSet4);
+        BarData data = new BarData(barDataSet1, barDataSet2, barDataSet3, barDataSet4);
         data.setValueTextSize(14f);
         data.setValueTextColor(Color.WHITE);
 
@@ -122,14 +116,11 @@ public class ResultActivity extends AppCompatActivity {
 
         Legend legend = barChart.getLegend();
         legend.setTextColor(Color.WHITE);
+        legend.setForm(Legend.LegendForm.CIRCLE);
         barChart.setFitBars(true);
         barChart.setTouchEnabled(false);
         barChart.animateY(2000);
         barChart.invalidate();
-    }
-
-    public void defineButtons(){
-        findViewById(R.id.buttonR1).setOnClickListener(buttonClickListener);
     }
 
     private View.OnClickListener buttonClickListener = new View.OnClickListener(){

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Stasis</string>
-    <string name="menu_button">Menu</string>
+    <string name="menu_button">Back</string>
     <string name="about_button">About</string>
     <string name="start_button">Start</string>
     <string name="submit_button">Submit</string>
@@ -9,4 +9,7 @@
     </string>
     <string name="instructions_text">A number of statements which people have used to describe their thoughts and worries are given in the following test. Read each statement and select the most appropriate answer to indicate how often you have those thoughts and worries. Do not spend too much time on each statement. There are no right or wrong answers and the first response to each item is often the most accurate.</string>
     <string name="results_text">asd</string>
+    <string name="social_score">Social Score</string>
+    <string name="health_score">Health Score</string>
+    <string name="meta_score">Meta Score</string>
 </resources>
