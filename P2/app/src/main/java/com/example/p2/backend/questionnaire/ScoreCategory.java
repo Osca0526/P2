@@ -11,12 +11,20 @@ public class ScoreCategory implements Parcelable {
 
     private int categoryScoreMaximum;
 
+    private int categoryScoreMinimum;
+
     private int MAX_ANSWER_WEIGHT = 4;
 
-    public ScoreCategory(String categoryName){
+    private int MIN_ANSWER_WEIGHT = 1;
+
+    private double categoryAverage;
+
+    public ScoreCategory(String categoryName, double average){
         this.categoryName = categoryName;
         categoryScoreCount = 0;
         categoryScoreMaximum = 0;
+        categoryScoreMinimum = 0;
+        categoryAverage = average;
     }
 
     public String getCategoryName(){
@@ -26,6 +34,7 @@ public class ScoreCategory implements Parcelable {
     public void increaseCount(int numberToAdd){
         categoryScoreCount += numberToAdd;
         categoryScoreMaximum += MAX_ANSWER_WEIGHT;
+        categoryScoreMinimum += MIN_ANSWER_WEIGHT;
     }
 
     public void decreaseCount(int numberToTake){
@@ -41,6 +50,13 @@ public class ScoreCategory implements Parcelable {
         return categoryScoreMaximum;
     }
 
+    public int getCategoryScoreMinimum(){
+        return categoryScoreMinimum;
+    }
+
+    public double getCategoryAverage() {
+        return categoryAverage;
+    }
 
     protected ScoreCategory(Parcel in) {
         categoryName = in.readString();
@@ -74,4 +90,5 @@ public class ScoreCategory implements Parcelable {
             return new ScoreCategory[size];
         }
     };
+
 }

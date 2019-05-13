@@ -10,6 +10,11 @@ public class AnTI_Test {
      *
      * Developed by Adrian Wells
      *
+     *
+     *
+     * Averages for non-patients taken from:
+     *
+     *
      * **/
 
     private Test test;
@@ -35,9 +40,9 @@ public class AnTI_Test {
 
     private ArrayList<ScoreCategory> generateScoreCategories(){
         ArrayList<ScoreCategory> scoreCategories = new ArrayList<>();
-        scoreCategories.add(new ScoreCategory("SOCIAL"));
-        scoreCategories.add(new ScoreCategory("HEALTH"));
-        scoreCategories.add(new ScoreCategory("META"));
+        scoreCategories.add(new ScoreCategory("SOCIAL", 17.5));
+        scoreCategories.add(new ScoreCategory("HEALTH", 10));
+        scoreCategories.add(new ScoreCategory("META", 12.8));
         return scoreCategories;
     }
 
