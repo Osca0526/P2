@@ -17,20 +17,20 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     public void defineButtons(){
-        findViewById(R.id.buttonA1).setOnClickListener(buttonClickListener);
-        findViewById(R.id.buttonA2).setOnClickListener(buttonClickListener);
+        findViewById(R.id.button1).setOnClickListener(buttonClickListener);
+        findViewById(R.id.button2).setOnClickListener(buttonClickListener);
     }
 
     private View.OnClickListener buttonClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.buttonA1:
+                case R.id.button1:
                     startActivity(new Intent(AboutActivity.this, MainActivity.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();
                     break;
-                case R.id.buttonA2:
+                case R.id.button2:
                     startActivity(new Intent(AboutActivity.this, TestActivity.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     break;

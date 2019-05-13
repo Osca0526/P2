@@ -13,12 +13,13 @@
         <activity android:name=".frontend.ResultActivity" />
         <activity android:name=".frontend.TestActivity" />
         <activity android:name=".frontend.MainActivity" />
+        <activity android:name=".frontend.InstructionActivity" />
         <activity android:name=".frontend.StartActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
     </application>
 </manifest>

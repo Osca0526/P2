@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Stasis</string>
+    <string name="menu_button">Menu</string>
+    <string name="about_button">About</string>
+    <string name="start_button">Start</string>
     <string name="submit_button">Submit</string>
-    <string name="about_text">"The about section, that comiles a long text into a so so smart and very smooth tranistion in the allread long text in tranistion inin the allready set constraints. The about section,  "</string>
-    <string name="about_main">About Stasis</string>
+    <string name="about_text">asd</string>
+    <string name="instructions_text">A number of statements which people have used to describe their thoughts and worries are given below. Read each statement and put a circle around the most appropriate number to indicate how often you have these thoughts and worries. Do not spend too much time on each statement. There are no right or wrong answers and the first response to each item is often the most accurate.</string>
+    <string name="results_text">asd</string>
 </resources>
