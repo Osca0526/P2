@@ -4,7 +4,9 @@
     <string name="about_button">About</string>
     <string name="start_button">Start</string>
     <string name="submit_button">Submit</string>
-    <string name="about_text">asd</string>
-    <string name="instructions_text">A number of statements which people have used to describe their thoughts and worries are given below. Read each statement and put a circle around the most appropriate number to indicate how often you have these thoughts and worries. Do not spend too much time on each statement. There are no right or wrong answers and the first response to each item is often the most accurate.</string>
+    <string name="about_text">Stasis is an anxiety self-assessment application. In providing users with insight into their anxiety levels, we hope to assist them into taking the necessary actions to improving their mental health.
+        The application is based on a 22 questions questionnaire developed by psychologist Adrian Wells. The results of the test are divided into three categories and meant to give the user a complex insight into three of the most common forms of anxieties the user might be experiencing.
+    </string>
+    <string name="instructions_text">A number of statements which people have used to describe their thoughts and worries are given in the following test. Read each statement and select the most appropriate answer to indicate how often you have those thoughts and worries. Do not spend too much time on each statement. There are no right or wrong answers and the first response to each item is often the most accurate.</string>
     <string name="results_text">asd</string>
 </resources>

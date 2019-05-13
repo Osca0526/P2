@@ -31,7 +31,7 @@ public class AboutActivity extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.button2:
-                    startActivity(new Intent(AboutActivity.this, TestActivity.class));
+                    startActivity(new Intent(AboutActivity.this, InstructionActivity.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     break;
             }
