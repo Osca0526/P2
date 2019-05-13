@@ -58,7 +58,6 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="8dp"
-        android:foregroundGravity="top|left"
         android:gravity="start"
         android:justificationMode="inter_word"
         android:lineSpacingExtra="5sp"

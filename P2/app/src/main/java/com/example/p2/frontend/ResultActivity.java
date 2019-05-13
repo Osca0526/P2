@@ -50,6 +50,8 @@ public class ResultActivity extends AppCompatActivity {
         int maxHealthScore = scoreResult.getScore().get(1).getCategoryScoreMaximum();
         int maxMetaScore = scoreResult.getScore().get(2).getCategoryScoreMaximum();
 
+        int minSocialScore = scoreResult.getScore().get(0).getCategoryScoreMinimum;
+
         BarChart barChart = (BarChart) findViewById(R.id.bargraph);
         ArrayList<BarEntry> barEntries1 = new ArrayList<>(0);
         ArrayList<BarEntry> barEntries2 = new ArrayList<>();

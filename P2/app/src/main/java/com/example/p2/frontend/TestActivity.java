@@ -27,11 +27,6 @@ public class TestActivity extends AppCompatActivity{
         update();
     }
 
-    protected void onResume(){
-        super.onResume();
-        //update();
-    }
-
     public void update() {
         //creating array for the answer buttons
         answerButtons.clear();
