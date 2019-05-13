@@ -138,7 +138,7 @@ public class TestActivity extends AppCompatActivity {
         submitButton.setText(R.string.submit_button);
         for (int y = 0; y < answerButtons.size(); y++) {
             if (y == answerNumber){
-                answerButtons.get(y).setTextColor(Color.parseColor("#fffd6b"));
+                answerButtons.get(y).setTextColor(Color.parseColor("#B8BAFF"));
                 answerButtons.get(y).setBackgroundDrawable(getResources().getDrawable(R.drawable.buttonquestpressed));
             } else {
                 answerButtons.get(y).setTextColor(Color.parseColor("#FFFFFF"));
