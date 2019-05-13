@@ -17,9 +17,9 @@ public class ScoreCategory implements Parcelable {
 
     private int MIN_ANSWER_WEIGHT = 1;
 
-    private double categoryAverage;
+    private float categoryAverage;
 
-    public ScoreCategory(String categoryName, double average){
+    public ScoreCategory(String categoryName, float average){
         this.categoryName = categoryName;
         categoryScoreCount = 0;
         categoryScoreMaximum = 0;
@@ -54,7 +54,7 @@ public class ScoreCategory implements Parcelable {
         return categoryScoreMinimum;
     }
 
-    public double getCategoryAverage() {
+    public float getCategoryAverage() {
         return categoryAverage;
     }
 

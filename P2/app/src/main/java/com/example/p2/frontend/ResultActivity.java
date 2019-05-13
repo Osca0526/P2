@@ -50,21 +50,43 @@ public class ResultActivity extends AppCompatActivity {
         int maxHealthScore = scoreResult.getScore().get(1).getCategoryScoreMaximum();
         int maxMetaScore = scoreResult.getScore().get(2).getCategoryScoreMaximum();
 
-        int minSocialScore = scoreResult.getScore().get(0).getCategoryScoreMinimum;
+        int minSocialScore = scoreResult.getScore().get(0).getCategoryScoreMinimum();
+        int minHealthScore = scoreResult.getScore().get(1).getCategoryScoreMinimum();
+        int minMetaScore = scoreResult.getScore().get(2).getCategoryScoreMinimum();
+
+        float avgSocialScore = scoreResult.getScore().get(0).getCategoryAverage();
+        float avgHealthScore = scoreResult.getScore().get(1).getCategoryAverage();
+        float avgMetaScore = scoreResult.getScore().get(2).getCategoryAverage();
 
         BarChart barChart = (BarChart) findViewById(R.id.bargraph);
-        ArrayList<BarEntry> barEntries1 = new ArrayList<>(0);
-        ArrayList<BarEntry> barEntries2 = new ArrayList<>();
-        barEntries1.add( new BarEntry(1f, socialScore));
-        barEntries2.add( new BarEntry(2f, maxSocialScore));
-        barEntries1.add( new BarEntry(4f, healthScore));
-        barEntries2.add( new BarEntry(5f, maxHealthScore));
-        barEntries1.add( new BarEntry(7f, metaScore));
-        barEntries2.add( new BarEntry(8f, maxMetaScore));
-        BarDataSet barDataSet1 = new BarDataSet(barEntries1, "Your Score");
-        BarDataSet barDataSet2 = new BarDataSet(barEntries2, "Maximum Score");
+        ArrayList<BarEntry> barScore = new ArrayList<>(0);
+        ArrayList<BarEntry> barMax = new ArrayList<>();
+        ArrayList<BarEntry> barMin = new ArrayList<>();
+        ArrayList<BarEntry> barAvg = new ArrayList<>();
+
+        barScore.add( new BarEntry(1f, socialScore));
+        barMax.add( new BarEntry(2f, maxSocialScore));
+        barMin.add( new BarEntry(3f, minSocialScore));
+        barAvg.add( new BarEntry(4f, avgSocialScore));
+
+        barScore.add( new BarEntry(6f, healthScore));
+        barMax.add( new BarEntry(7f, maxHealthScore));
+        barMin.add( new BarEntry(8f, minHealthScore));
+        barAvg.add( new BarEntry(9f, avgHealthScore));
+
+        barScore.add( new BarEntry(11f, metaScore));
+        barMax.add( new BarEntry(12f, maxMetaScore));
+        barMin.add( new BarEntry(13f, minMetaScore));
+        barAvg.add( new BarEntry(14f, avgMetaScore));
+
+        BarDataSet barDataSet1 = new BarDataSet(barScore, "Your Score");
+        BarDataSet barDataSet2 = new BarDataSet(barMax, "Maximum Score");
+        BarDataSet barDataSet3 = new BarDataSet(barMin, "Minimum Score");
+        BarDataSet barDataSet4 = new BarDataSet(barAvg, "Average Score");
         barDataSet1.setColors(Color.parseColor("#B8BAFF"));
         barDataSet2.setColors(Color.parseColor("#5C5D80"));
+        barDataSet3.setColors(Color.parseColor("#5C5D81"));
+        barDataSet4.setColors(Color.parseColor("#5C5D82"));
 
         ArrayList<String> categories = new ArrayList<>();
         categories.add(scoreResult.getScore().get(0).getCategoryName());
@@ -72,7 +94,7 @@ public class ResultActivity extends AppCompatActivity {
         categories.add(scoreResult.getScore().get(2).getCategoryName());
 
         //creating the chart
-        BarData data = new BarData(barDataSet1, barDataSet2);
+        BarData data = new BarData(barDataSet1, barDataSet2, barDataSet3,barDataSet4);
         data.setValueTextSize(14f);
         data.setValueTextColor(Color.WHITE);
 
