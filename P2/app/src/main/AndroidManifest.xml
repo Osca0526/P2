@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".frontend.AboutActivity"></activity>
         <activity android:name=".frontend.ResultActivity" />
+        <activity android:name=".frontend.ResultTextActivity" />
         <activity android:name=".frontend.TestActivity" />
         <activity android:name=".frontend.MainActivity" />
         <activity android:name=".frontend.InstructionActivity" />

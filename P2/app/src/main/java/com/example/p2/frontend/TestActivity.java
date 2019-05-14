@@ -64,6 +64,7 @@ public class TestActivity extends AppCompatActivity {
 
         //creating the button for submitting
         Button submitButton = findViewById(R.id.submit);
+        submitButton.setEnabled(false);
         submitButton.setOnClickListener(buttonClickListener);
 
         //taking the answers from each question
@@ -122,7 +123,7 @@ public class TestActivity extends AppCompatActivity {
                         test.submitQuestionAnswer(test.getCurrentQuestion().getCategory(), test.getCurrentQuestion().setAnswer(test.getCurrentQuestion().getQuestionAnswerOptions().getAnswerOptions().get(answerNumber)));
                         update();
                     } else {
-                        Intent result = new Intent(TestActivity.this, ResultActivity.class);
+                        Intent result = new Intent(TestActivity.this, ResultTextActivity.class);
                         result.putExtra("test", test);
                         startActivity(result);
                         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -136,6 +137,7 @@ public class TestActivity extends AppCompatActivity {
     public void manageAnswer(){
         Button submitButton = findViewById(R.id.submit);
         submitButton.setText(R.string.submit_button);
+        submitButton.setEnabled(true);
         for (int y = 0; y < answerButtons.size(); y++) {
             if (y == answerNumber){
                 answerButtons.get(y).setTextColor(Color.parseColor("#B8BAFF"));

@@ -4,6 +4,8 @@
     <string name="about_button">About</string>
     <string name="start_button">Start</string>
     <string name="submit_button">Submit</string>
+    <string name="my_score">My Score</string>
+    <string name="delete_results">Delete\nResults</string>
     <string name="social_score">Social Score</string>
     <string name="health_score">Health Score</string>
     <string name="meta_score">Meta Score</string>
@@ -12,5 +14,8 @@
     <string name="results_title">RESULTS</string>
     <string name="about_text">Stasis is an anxiety self-assessment application. In providing users with insight into their anxiety levels, we hope to assist them into taking the necessary actions to improving their mental health. The test consists of 22 questions based on a questionnaire developed by psychologist Adrian Wells. The results are divided into three categories and meant to give the user a complex insight into three of the most common forms of anxieties the user might be experiencing.</string>
     <string name="instructions_text">A number of statements which people have used to describe their thoughts and worries are given in the following test. Read each statement and select the most appropriate answer to indicate how often you have those thoughts and worries. Do not spend too much time on each statement. There are no right or wrong answers and the first response to each item is often the most accurate.</string>
-    <string name="results_text">asd</string>
+    <string name="results_text">When you press on the “My Score” button, you will be able to see your results in the form of a graph.
+The graph represents your results to the questionnaire and shows how your results compare to the average, the minimum and the maximum scores you could get.
+The lower the number in the results, the lower the anxiety symptoms. The results are divided into three categories, corresponding to three categories of anxiety symptoms:\n1. Social: worry about social situations\n2. Health: worry about health\n3. Meta: worry about worry
+</string>
 </resources>

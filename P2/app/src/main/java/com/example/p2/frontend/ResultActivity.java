@@ -22,14 +22,16 @@ import com.github.mikephil.charting.data.BarEntry;
 import java.util.ArrayList;
 
 public class ResultActivity extends AppCompatActivity {
+    Test test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         findViewById(R.id.buttonR1).setOnClickListener(buttonClickListener);
+        findViewById(R.id.buttonR2).setOnClickListener(buttonClickListener);
         Intent intent = getIntent();
-        Test test = intent.getParcelableExtra("test");
+        test = intent.getParcelableExtra("test2");
         Score scoreResult = test.getScore();
 
         TextView socialScoreTitle = findViewById(R.id.socialScore);
@@ -132,6 +134,12 @@ public class ResultActivity extends AppCompatActivity {
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();
                     break;
+                case R.id.buttonR2:
+                    Intent result = new Intent(ResultActivity.this, ResultTextActivity.class);
+                    result.putExtra("test", test);
+                    startActivity(result);
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    finish();
             }
         }
     };
